@@ -29,7 +29,7 @@ The pipeline processes:
 
 
 ## Architecture
-
+```mermaid
 flowchart TD
     A["Orders / Customers / Products CSV"] --> B["01_Bronze_Ingestion Notebook"]
     B --> C["Bronze Layer - Raw Delta Tables (default.orders, default.customers, default.products)"]
@@ -49,7 +49,7 @@ flowchart TD
         E
         G
     end
-
+```
 
 - **Bronze Layer**: Stores raw data exactly as ingested. Ensures traceability and allows reprocessing.  
 - **Silver Layer**: Cleans and enriches the data: removes duplicates, fills nulls, standardizes timestamps, and joins with customers/products.  
