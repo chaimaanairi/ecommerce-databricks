@@ -30,19 +30,25 @@ The pipeline processes:
 
 ## Architecture
 
-**Medallion Architecture Flow:**
-Raw CSVs / Tables
-↓
-Bronze Layer
-(Raw, unmodified data)
-↓
-Silver Layer
-(Cleaned, deduplicated, enriched)
-↓
-Gold Layer
-(Aggregated business insights)
-↓
-Dashboard / Analytics
+flowchart TD
+    A["Orders / Customers / Products CSV"] --> B["01_Bronze_Ingestion Notebook"]
+    B --> C["Bronze Layer - Raw Delta Tables (default.orders, default.customers, default.products)"]
+    C --> D["02_Silver_Transformation Notebook"]
+    D --> E["Silver Layer - Cleaned & Enriched Delta Table (default.orders_silver)"]
+    E --> F["03_Gold_Analytics Notebook"]
+    F --> G["Gold Layer - Aggregated Analytics Table (default.sales_gold)"]
+
+    subgraph ORCH["Databricks Workflows / Jobs"]
+        B
+        D
+        F
+    end
+
+    subgraph GC["Unity Catalog / Delta Lake"]
+        C
+        E
+        G
+    end
 
 
 - **Bronze Layer**: Stores raw data exactly as ingested. Ensures traceability and allows reprocessing.  
