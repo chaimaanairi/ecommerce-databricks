@@ -55,21 +55,5 @@ flowchart TD
 - **Silver Layer**: Cleans and enriches the data: removes duplicates, fills nulls, standardizes timestamps, and joins with customers/products.  
 - **Gold Layer**: Aggregated tables for business insights like total revenue per product, revenue per day, and top customers.
 
-*Optional:* Include a screenshot of the **Databricks lineage graph** here.
 
 
-## Tools & Technologies
-
-| Component | Usage |
-|-----------|-------|
-| **Databricks** | Platform to build and orchestrate the pipeline |
-| **PySpark** | Data transformations |
-| **Delta Lake** | Managed tables with ACID transactions |
-| **Databricks Workflows** | Orchestrate notebooks (Bronze → Silver → Gold) |
-| **GitHub** | Version control and project documentation |
-
-
-
-
-
-**Medallion Architecture Flow:**
