@@ -40,6 +40,3 @@ flowchart TD
 - **Bronze Layer**: Stores raw data exactly as ingested. Ensures traceability and allows reprocessing.  
 - **Silver Layer**: Cleans and enriches the data: removes duplicates, fills nulls, standardizes timestamps, and joins with customers/products.  
 - **Gold Layer**: Aggregated tables for business insights like total revenue per product, revenue per day, and top customers.
-
-
-
